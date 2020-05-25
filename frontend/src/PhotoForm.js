@@ -35,9 +35,7 @@ function PhotoForm({ photosStore, edit, selectedPhoto, onSave }) {
         bodyFormData.set("name", evt.name);
         bodyFormData.set("description", evt.description);
         bodyFormData.set("photo", photo);
-        console.log("--------------->", bodyFormData.get("photo"));
         let resp = await addPhoto(bodyFormData);
-        console.log("RESPONSE", resp);
       } else {
         bodyFormData.set("id", selectedPhoto.id);
         bodyFormData.set("name", evt.name);

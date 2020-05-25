@@ -56,14 +56,16 @@ function HomePage({ photosStore }) {
         </thead>
         <tbody>
           {photosStore.photos.map((p, i) => {
-            const splitPath = p.photoPath.split("\\");
+            const splitPath = p.photoPath.split("\/");
+            console.log("splitPath", splitPath);
             const path = splitPath[splitPath.length - 1];
+            console.log("PATH", splitPath);
             return (
               <tr key={i}>
                 <td>{p.name}</td>
                 <td>{p.description}</td>
                 <td>
-                  <img src={`${APIURL}/${path}`} style={{ width: 200 }} />
+                  <img src={`${APIURL}/${path}`} alt="NA" style={{ width: 200 }} />
                 </td>
                 <td>
                   <Button onClick={handleEditShow.bind(this, p)}>Edit</Button>

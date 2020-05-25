@@ -5,6 +5,7 @@ const models = require("../models");
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
     cb(null, "./uploads");
+    // cb(null, path.join(__dirname, '/uploads'));
   },
   filename: (req, file, cb) => {
     cb(null, `${file.fieldname}_${+new Date()}.jpg`);
@@ -20,6 +21,7 @@ router.get("/", async (req, res, next) => {
 });
 
 router.post("/add", upload.single("photo"), async (req, res, next) => {
+  console.log("In router");
   try {
     console.log("REQ PARAMS", req);
     const path = req.file.path;
